@@ -1,6 +1,6 @@
 <template>
 	<div id="app" @scroll="handleScroll">
-		<header id="app_header">
+		<header id="app_header" ref="header">
 			<div class="header_container">
 				<p>{{ weddingHost }}</p>
 			</div>
@@ -13,21 +13,35 @@
 					mode="horizontal"
 					@select="handleSelect"
 				>
-					<el-menu-item index="1">Home</el-menu-item>
-					<el-menu-item index="2">Gallery</el-menu-item>
-					<el-menu-item index="3">About Us</el-menu-item>
-					<el-menu-item index="4">Date</el-menu-item>
-					<el-menu-item index="5">Location</el-menu-item>
+					<el-menu-item index="1" @click="onScrollTo('header')">
+						<i class="el-icon-s-home"></i> Home</el-menu-item
+					>
+					<el-menu-item index="2" @click="onScrollTo('gallery')">
+						<i class="el-icon-menu"></i> Gallery</el-menu-item
+					>
+
+					<el-menu-item index="3" @click="onScrollTo('about_us')"
+						><i class="el-icon-user"></i> About Us</el-menu-item
+					>
+					<el-menu-item index="4" @click="onScrollTo('date')"
+						><i class="el-icon-date"></i> Date</el-menu-item
+					>
+					<el-menu-item index="5" @click="onScrollTo('location')"
+						><i class="el-icon-location"></i> Location</el-menu-item
+					>
 				</el-menu>
 			</div>
-			<div class="menu_picture section">
+			<!-- gallery -->
+			<div class="menu_picture section" ref="gallery">
+				<h3>Gallery</h3>
 				<el-carousel :interval="5000" type="card" height="700px">
 					<el-carousel-item v-for="(picture, index) in weddingPictures" :key="index">
 						<img class="wedding_pic" :src="picture.src" alt="..." />
 					</el-carousel-item>
 				</el-carousel>
 			</div>
-			<div class="about_us section">
+			<!-- about us -->
+			<div class="about_us section" ref="about_us">
 				<h3>About us</h3>
 				<div class="about_us_container">
 					<div class="groom host">
@@ -59,7 +73,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="date section">
+			<!-- date -->
+			<div class="date section" ref="date">
 				<h3>Date</h3>
 				<div class="date_frame">
 					<div class="date_countdown">
@@ -74,7 +89,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="location section">
+			<!-- location -->
+			<div class="location section" ref="location">
 				<h3>Location</h3>
 				<div class="location_container">
 					<div class="map">
@@ -142,7 +158,7 @@
 			></b-icon>
 			<div class="player-bar">
 				<audio ref="audio" autoplay>
-					<source src="../public/audio/theme_song.mp3" type="audio/mpeg" />
+					<!-- <source src="../public/audio/theme_song.mp3" type="audio/mpeg" /> -->
 				</audio>
 			</div>
 		</div>
@@ -237,6 +253,13 @@ export default {
 		onStop() {
 			this.$refs.audio.pause();
 			this.isPlaying = false; // Set isPlaying to false when stopping
+		},
+		onScrollTo(refName) {
+			const target = this.$refs[refName];
+			window.scrollTo({
+				top: target.offsetTop,
+				behavior: 'smooth',
+			});
 		},
 	},
 };

@@ -268,7 +268,8 @@
 	left: 20px;
 	font-size: 2rem;
 	cursor: pointer;
+	z-index: 11;
 }
 .player-bar {
-  /* display: none; */
+	/* display: none; */
 }
