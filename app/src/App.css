@@ -35,6 +35,7 @@
 }
 .header_container p {
 	font-size: 30px;
+	font-weight: 800;
 	margin: 0;
 	padding: 0;
 }
@@ -146,6 +147,50 @@
 	right: 20px;
 	font-size: 2rem;
 	cursor: pointer;
+}
+.date {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.date_frame {
+	background-image: linear-gradient(to bottom, rgb(255, 215, 158) 60%, white 50%);
+	width: 90%;
+	height: 100%;
+	padding: 2% 10%;
+	/* margin: 0 10%; */
+	display: flex;
+	align-self: center;
+	/* justify-content: center; */
+	border: 1px solid rgba(200, 200, 200, 0.3);
+}
+.date_frame .date_countdown {
+	width: 60%;
+}
+.date_frame .date_countdown .wedding_day {
+	padding-left: 17px;
+	text-align: left;
+}
+.date_frame .date_countdown .wedding_day p {
+	font-size: 1.3rem;
+	margin-bottom: 8px;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Parisienne', cursive;
+	font-weight: 600;
+}
+/deep/ .flip-clock {
+	display: flex !important;
+}
+.date_frame .date_pic {
+	width: 40%;
+}
+.date_pic img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 #app_footer {
 	height: 20px;

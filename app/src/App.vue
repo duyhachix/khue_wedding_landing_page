@@ -61,8 +61,18 @@
 			</div>
 			<div class="date section">
 				<h3>Date</h3>
-				<div class="date_frame"></div>
-				<h1>{{ days }} days : {{ hours }} hours : {{ minutes }} minutes : {{ seconds }} seconds</h1>
+				<div class="date_frame">
+					<div class="date_countdown">
+						<div class="wedding_day">
+							<p>Wedding day:</p>
+							<h2>Date We Getting Married</h2>
+						</div>
+						<flip-countdown deadline="2023-12-31 23:59:59"></flip-countdown>
+					</div>
+					<div class="date_pic">
+						<img src="../public/img/ring.jpeg" alt="..." />
+					</div>
+				</div>
 			</div>
 		</div>
 		<div v-if="toTopisShow" class="top-btn" @click="scrollToTop">
@@ -86,14 +96,19 @@
 </template>
 
 <script>
+import FlipCountdown from 'vue2-flip-countdown';
+
 export default {
 	name: 'App',
+	components: {
+		FlipCountdown,
+	},
+
 	created() {
 		document.title = 'My wedding';
 	},
 	mounted() {
 		window.addEventListener('scroll', this.handleScroll);
-		this.updateCountdown(); // Cập nhật lần đầu
 		setInterval(this.updateCountdown, 1000); // Cập nhật mỗi giây
 	},
 	beforeDestroy() {
@@ -137,22 +152,6 @@ export default {
 		},
 		handleScroll() {
 			this.toTopisShow = window.scrollY > 200;
-		},
-		updateCountdown() {
-			const now = new Date();
-			const timeDifference = this.targetDate - now;
-
-			if (timeDifference > 0) {
-				this.days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-				this.hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-				this.minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
-				this.seconds = Math.floor((timeDifference / 1000) % 60);
-			} else {
-				this.days = 0;
-				this.hours = 0;
-				this.minutes = 0;
-				this.seconds = 0;
-			}
 		},
 	},
 };
