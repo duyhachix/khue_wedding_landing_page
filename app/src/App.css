@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Parisienne&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Parisienne&display=swap');
+#app {
+	font-family: 'Parisienne', cursive;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	margin: 0;
+}
+#app_header {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	height: 80px;
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header_container {
+	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Parisienne', cursive;
+	width: 80%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* position: relative; */
+}
+.header_container p {
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+}
+
+#app_body {
+	margin-top: 80px;
+	height: calc(100% - 100px);
+	margin-bottom: 20px;
+}
+
+.navbar_menu {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+}
+
+.section {
+	margin-bottom: 20px;
+}
+.section h3 {
+	font-size: 2rem;
+	font-weight: 800;
+	margin-bottom: 20px;
+}
+.wedding_pic {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.about_us {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.about_us_container {
+	width: 80%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.groom {
+	width: 45%;
+	height: 100%;
+	display: flex;
+}
+.vertical-line {
+}
+.bride {
+	width: 45%;
+	height: 100%;
+	display: flex;
+	flex-direction: row-reverse;
+}
+.groom .groom_pic {
+	width: 50%;
+}
+.groom .groom_pic img {
+	width: 100%;
+}
+.groom .groom_info {
+	width: 40%;
+}
+.bride .bride_info {
+	width: 40%;
+}
+.bride .bride_pic {
+	width: 50%;
+}
+.bride .bride_pic img {
+	width: 100%;
+}
+
+.groom_info .info {
+	text-align: left;
+}
+.bride_info .info {
+	text-align: right;
+}
+.host {
+	display: flex;
+	gap: 20px;
+}
+.host img {
+	width: auto;
+	object-fit: contain;
+	border: 1px solid;
+	outline: 1px solid rgb(0, 0, 0);
+	outline-offset: 10px;
+	border-radius: 10px;
+}
+.host h2 {
+	font-size: 1.5rem;
+	margin-bottom: 20px;
+	font-weight: 800;
+}
+.host h4 {
+	font-size: 1rem;
+}
+.top-btn {
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+	font-size: 2rem;
+	cursor: pointer;
+}
+#app_footer {
+	height: 20px;
+	width: 100%;
+	background-color: rgb(201, 201, 201);
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+	font-size: 0.8rem;
+}
+#app_footer .footer_container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 2%;
+}
+.footer_container .footer_title {
+}
+.footer_container .author {
+	display: flex;
+	height: 100%;
+}
+.footer_container .author a {
+	margin: 0 3px;
+	padding: 0;
+	align-self: center;
+}
+.footer_container .author a img {
+	width: 16px;
+	height: 16px;
+	object-fit: contain;
+}
