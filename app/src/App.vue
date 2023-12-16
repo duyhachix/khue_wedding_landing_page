@@ -125,7 +125,27 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="player">
+			<b-icon
+				@click.prevent="onStop"
+				v-if="isPlaying"
+				icon="stop-circle-fill"
+				font-scale="1"
+				variant="secondary"
+			></b-icon>
+			<b-icon
+				@click.prevent="onPlay"
+				v-else
+				icon="play-circle-fill"
+				font-scale="1"
+				variant="primary"
+			></b-icon>
+			<div class="player-bar">
+				<audio ref="audio" autoplay>
+					<source src="../public/audio/theme_song.mp3" type="audio/mpeg" />
+				</audio>
+			</div>
+		</div>
 		<div v-if="toTopisShow" class="top-btn" @click="scrollToTop">
 			<b-icon icon="arrow-up-square-fill" font-scale="1"></b-icon>
 		</div>
@@ -154,10 +174,11 @@ export default {
 	components: {
 		FlipCountdown,
 	},
-
+	created() {},
 	mounted() {
-		window.addEventListener('scroll', this.handleScroll);
+		window.addEventListener('click', this.initiateAudioPlayback);
 		setInterval(this.updateCountdown, 1000); // Cập nhật mỗi giây
+		window.addEventListener('scroll', this.handleScroll);
 	},
 	beforeDestroy() {
 		window.removeEventListener('scroll', this.handleScroll);
@@ -165,6 +186,8 @@ export default {
 
 	data() {
 		return {
+			isPlaying: true,
+			player: null,
 			weddingHost: 'Đình Khuê & Trà My',
 			activeIndex: '1',
 			toTopisShow: false,
@@ -199,7 +222,21 @@ export default {
 			window.scrollTo(0, 0);
 		},
 		handleScroll() {
+			// this.$refs.audio.play();
 			this.toTopisShow = window.scrollY > 200;
+		},
+		initiateAudioPlayback() {
+			this.$refs.audio.play();
+			window.removeEventListener('click', this.initiateAudioPlayback); // Remove the listener after the first interaction
+			this.isPlaying = true;
+		},
+		onPlay() {
+			this.$refs.audio.play();
+			this.isPlaying = true; // Set isPlaying to true when playing
+		},
+		onStop() {
+			this.$refs.audio.pause();
+			this.isPlaying = false; // Set isPlaying to false when stopping
 		},
 	},
 };

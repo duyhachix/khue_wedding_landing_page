@@ -261,3 +261,14 @@
 	height: 16px;
 	object-fit: contain;
 }
+
+.player {
+	position: fixed;
+	bottom: 50px;
+	left: 20px;
+	font-size: 2rem;
+	cursor: pointer;
+}
+.player-bar {
+  /* display: none; */
+}
