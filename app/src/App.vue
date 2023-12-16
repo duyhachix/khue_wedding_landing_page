@@ -65,7 +65,7 @@
 					<div class="date_countdown">
 						<div class="wedding_day">
 							<p>Wedding day:</p>
-							<h2>Date We Getting Married</h2>
+							<h2>Countdown to the date we getting married</h2>
 						</div>
 						<flip-countdown deadline="2023-12-31 23:59:59"></flip-countdown>
 					</div>
@@ -74,13 +74,64 @@
 					</div>
 				</div>
 			</div>
+			<div class="location section">
+				<h3>Location</h3>
+				<div class="location_container">
+					<div class="map">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29763.53336940917!2d106.0740739!3d21.1746066!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350d5ef403be1b%3A0x90409b16b662566f!2zTmjDoCBWxINuIEhvw6EgS2h1IDQgxJDhuqFpIFBow7pj!5e0!3m2!1svi!2s!4v1702715991019!5m2!1svi!2s"
+							width="400"
+							height="400"
+							style=""
+							allowfullscreen="true"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+						></iframe>
+					</div>
+					<div class="more_info">
+						<h4>More information:</h4>
+						<div class="location_info">
+							<div class="location_info_item">
+								<b-icon
+									class="item_icon"
+									icon="geo-alt-fill"
+									variant="danger"
+									font-scale="1"
+								></b-icon>
+								<p class="item_context">
+									Nhà văn hoá khu 4 Đại Phúc, thành phố Bắc Ninh, tỉnh Bắc Ninh
+								</p>
+							</div>
+							<div class="location_info_item">
+								<b-icon
+									class="item_icon"
+									icon="clock-fill"
+									variant="warning"
+									font-scale="1"
+								></b-icon>
+								<p class="item_context">10:00 AM - 12:00 PM</p>
+							</div>
+							<div class="location_info_item">
+								<b-icon
+									class="item_icon"
+									icon="telephone-fill"
+									variant="info"
+									font-scale="1"
+								></b-icon>
+								<p class="item_context">(+84)33 251 6020</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
 		<div v-if="toTopisShow" class="top-btn" @click="scrollToTop">
 			<b-icon icon="arrow-up-square-fill" font-scale="1"></b-icon>
 		</div>
 		<footer id="app_footer">
 			<div class="footer_container">
-				<div class="footer_title">@Designed by: Nguyen Thanh Duy</div>
+				<div class="footer_title"><strong>@Designed by:</strong> Nguyen Thanh Duy</div>
 				<div class="author">
 					Find me here:
 					<a target="_blank" href="https://www.facebook.com/chiju109/"
@@ -104,9 +155,6 @@ export default {
 		FlipCountdown,
 	},
 
-	created() {
-		document.title = 'My wedding';
-	},
 	mounted() {
 		window.addEventListener('scroll', this.handleScroll);
 		setInterval(this.updateCountdown, 1000); // Cập nhật mỗi giây
