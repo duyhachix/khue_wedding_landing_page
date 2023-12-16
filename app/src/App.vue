@@ -6,6 +6,13 @@
 			</div>
 		</header>
 		<div id="app_body">
+			<!-- greeting -->
+			<b-modal hide-header hide-footer hide-backdrop centered size="lg" id="modal-1">
+				<div class="modal_body">
+					<i class="el-icon-close icon card_icon" @click="closeModal"></i>
+					<img src="../public/img/wedding_card.png" alt="" />
+				</div>
+			</b-modal>
 			<div class="navbar">
 				<el-menu
 					:default-active="activeIndex"
@@ -34,7 +41,7 @@
 			<!-- gallery -->
 			<div class="menu_picture section" ref="gallery">
 				<h3>Gallery</h3>
-				<el-carousel :interval="5000" type="card" height="700px">
+				<el-carousel :interval="5000" type="card" height="630px">
 					<el-carousel-item v-for="(picture, index) in weddingPictures" :key="index">
 						<img class="wedding_pic" :src="picture.src" alt="..." />
 					</el-carousel-item>
@@ -158,7 +165,7 @@
 			></b-icon>
 			<div class="player-bar">
 				<audio ref="audio" autoplay>
-					<!-- <source src="../public/audio/theme_song.mp3" type="audio/mpeg" /> -->
+					<source src="../public/audio/theme_song.mp3" type="audio/mpeg" />
 				</audio>
 			</div>
 		</div>
@@ -192,9 +199,10 @@ export default {
 	},
 	created() {},
 	mounted() {
-		window.addEventListener('click', this.initiateAudioPlayback);
 		setInterval(this.updateCountdown, 1000); // Cập nhật mỗi giây
 		window.addEventListener('scroll', this.handleScroll);
+		this.$bvModal.show('modal-1');
+		window.addEventListener('click', this.initiateAudioPlayback);
 	},
 	beforeDestroy() {
 		window.removeEventListener('scroll', this.handleScroll);
@@ -243,8 +251,8 @@ export default {
 		},
 		initiateAudioPlayback() {
 			this.$refs.audio.play();
-			window.removeEventListener('click', this.initiateAudioPlayback); // Remove the listener after the first interaction
 			this.isPlaying = true;
+			window.removeEventListener('click', this.initiateAudioPlayback); // Remove the listener after the first interaction
 		},
 		onPlay() {
 			this.$refs.audio.play();
@@ -260,6 +268,9 @@ export default {
 				top: target.offsetTop,
 				behavior: 'smooth',
 			});
+		},
+		closeModal() {
+			this.$bvModal.hide('modal-1');
 		},
 	},
 };
