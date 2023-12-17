@@ -3,7 +3,7 @@
 		<app-header></app-header>
 		<div id="app_body">
 			<!-- greeting -->
-			<b-modal hide-header hide-footer hide-backdrop centered size="xs" id="modal-1">
+			<b-modal hide-header hide-footer centered size="xs" id="modal-1">
 				<div class="modal_body">
 					<i class="el-icon-close icon card_icon" @click="closeModal"></i>
 					<img src="../public/img/wedding_card.png" alt="" />
@@ -84,6 +84,9 @@
 						<div class="wedding_day">
 							<p>Wedding day:</p>
 							<h2>Countdown to the date we getting married</h2>
+							<h3>
+								{{ weddingInvitationMessage }}
+							</h3>
 						</div>
 						<flip-countdown deadline="2023-12-31 23:59:59"></flip-countdown>
 					</div>
@@ -195,6 +198,8 @@ export default {
 
 	data() {
 		return {
+			weddingInvitationMessage:
+				'The love and support of friends and family make moments unforgettable. Will you be apart of our special day and witness the beginning of our happily ever after?',
 			isPlaying: true,
 			player: null,
 			activeIndex: '1',

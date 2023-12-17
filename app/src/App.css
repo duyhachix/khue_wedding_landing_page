@@ -135,7 +135,93 @@
 	gap: 10px;
 }
 
+.date {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.date_frame {
+	background-image: linear-gradient(to bottom, rgb(255, 215, 158) 60%, white 50%);
+	width: 90%;
+	height: 100%;
+	padding: 2% 10%;
+	/* margin: 0 10%; */
+	display: flex;
+	align-self: center;
+	/* justify-content: center; */
+	border: 1px solid rgba(200, 200, 200, 0.3);
+}
+.date_frame .date_countdown {
+	width: 60%;
+}
+.date_frame .date_countdown .wedding_day {
+	padding-left: 17px;
+	text-align: left;
+}
+.date_frame .date_countdown .wedding_day p {
+	font-size: 1.3rem;
+	margin-bottom: 8px;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Parisienne', cursive;
+	font-weight: 600;
+}
+.date_frame .date_countdown .wedding_day h2 {
+	font-size: 1rem;
+	font-weight: 600;
+}
+.date_frame .date_countdown .wedding_day h3 {
+	font-size: 0.8rem;
+	font-weight: 400;
+	padding-right: 12px;
+}
+/deep/ .flip-clock {
+	display: flex !important;
+}
+.date_frame .date_pic {
+	width: 40%;
+}
+.date_pic img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
 @media screen and (max-width: 480px) {
+	.date_frame {
+		display: flex !important;
+		padding: 2% 5%;
+		flex-direction: column;
+	}
+	.date_frame .date_countdown {
+		width: 100%;
+	}
+	.date_frame .date_countdown .wedding_day {
+		padding-left: 0;
+		/* text-align: center; */
+	}
+
+	/deep/ .flip-clock {
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+  
+	.date_frame .date_countdown .wedding_day p {
+		font-size: 1.2rem;
+	}
+	.date_frame .date_countdown .wedding_day h2 {
+		font-size: 1rem;
+	}
+	.date_frame .date_countdown .wedding_day h3 {
+		font-size: 0.8rem;
+	}
+	.date_frame .date_pic {
+		width: 100%;
+	}
 	#app_body {
 		height: calc(100% - 60px);
 		margin-top: 40px;
@@ -207,50 +293,6 @@
 	font-size: 2rem;
 	cursor: pointer;
 }
-.date {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.date_frame {
-	background-image: linear-gradient(to bottom, rgb(255, 215, 158) 60%, white 50%);
-	width: 90%;
-	height: 100%;
-	padding: 2% 10%;
-	/* margin: 0 10%; */
-	display: flex;
-	align-self: center;
-	/* justify-content: center; */
-	border: 1px solid rgba(200, 200, 200, 0.3);
-}
-.date_frame .date_countdown {
-	width: 60%;
-}
-.date_frame .date_countdown .wedding_day {
-	padding-left: 17px;
-	text-align: left;
-}
-.date_frame .date_countdown .wedding_day p {
-	font-size: 1.3rem;
-	margin-bottom: 8px;
-	font-family: 'Noto Sans JP', sans-serif;
-	font-family: 'Parisienne', cursive;
-	font-weight: 600;
-}
-/deep/ .flip-clock {
-	display: flex !important;
-}
-.date_frame .date_pic {
-	width: 40%;
-}
-.date_pic img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
 
 .location {
 	width: 100%;
@@ -308,11 +350,11 @@
 }
 
 /deep/ .modal-body {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background-color: transparent;
-  padding: 0;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: transparent;
+	padding: 0;
 }
 .modal_body .card_icon {
 	position: absolute;
@@ -326,4 +368,3 @@
 	height: 100%;
 	object-fit: contain;
 }
-
