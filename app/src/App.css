@@ -147,11 +147,10 @@
 	background-image: linear-gradient(to bottom, rgb(255, 215, 158) 60%, white 50%);
 	width: 90%;
 	height: 100%;
-	padding: 2% 10%;
-	/* margin: 0 10%; */
+	padding: 2% 5%;
 	display: flex;
 	align-self: center;
-	/* justify-content: center; */
+	gap: 2%;
 	border: 1px solid rgba(200, 200, 200, 0.3);
 }
 .date_frame .date_countdown {
@@ -209,7 +208,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-  
+
 	.date_frame .date_countdown .wedding_day p {
 		font-size: 1.2rem;
 	}
