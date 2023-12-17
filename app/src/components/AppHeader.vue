@@ -51,8 +51,6 @@ export default {
 	#app_header {
 		height: 40px;
 	}
-	.header_container {
-	}
 
 	.header_container p {
 		font-size: 20px;
