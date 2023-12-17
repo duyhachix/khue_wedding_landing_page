@@ -1,19 +1,15 @@
 <template>
 	<div id="app" @scroll="handleScroll">
-		<header id="app_header" ref="header">
-			<div class="header_container">
-				<p>{{ weddingHost }}</p>
-			</div>
-		</header>
+		<app-header></app-header>
 		<div id="app_body">
 			<!-- greeting -->
-			<b-modal hide-header hide-footer hide-backdrop centered size="lg" id="modal-1">
+			<b-modal hide-header hide-footer hide-backdrop centered size="xs" id="modal-1">
 				<div class="modal_body">
 					<i class="el-icon-close icon card_icon" @click="closeModal"></i>
 					<img src="../public/img/wedding_card.png" alt="" />
 				</div>
 			</b-modal>
-			<div class="navbar">
+			<div class="navbar section">
 				<el-menu
 					:default-active="activeIndex"
 					class="el-menu-demo navbar_menu"
@@ -41,7 +37,7 @@
 			<!-- gallery -->
 			<div class="menu_picture section" ref="gallery">
 				<h3>Gallery</h3>
-				<el-carousel :interval="5000" type="card" height="630px">
+				<el-carousel :interval="5000" type="card" class="gallery">
 					<el-carousel-item v-for="(picture, index) in weddingPictures" :key="index">
 						<img class="wedding_pic" :src="picture.src" alt="..." />
 					</el-carousel-item>
@@ -103,8 +99,6 @@
 					<div class="map">
 						<iframe
 							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29763.53336940917!2d106.0740739!3d21.1746066!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350d5ef403be1b%3A0x90409b16b662566f!2zTmjDoCBWxINuIEhvw6EgS2h1IDQgxJDhuqFpIFBow7pj!5e0!3m2!1svi!2s!4v1702715991019!5m2!1svi!2s"
-							width="400"
-							height="400"
 							style=""
 							allowfullscreen="true"
 							loading="lazy"
@@ -172,30 +166,21 @@
 		<div v-if="toTopisShow" class="top-btn" @click="scrollToTop">
 			<b-icon icon="arrow-up-square-fill" font-scale="1"></b-icon>
 		</div>
-		<footer id="app_footer">
-			<div class="footer_container">
-				<div class="footer_title"><strong>@Designed by:</strong> Nguyen Thanh Duy</div>
-				<div class="author">
-					Find me here:
-					<a target="_blank" href="https://www.facebook.com/chiju109/"
-						><img src="../public/img/facebook.png" alt=""
-					/></a>
-					<a target="_blank" href="https://www.instagram.com/chiju_d/"
-						><img src="../public/img/instagram.png" alt=""
-					/></a>
-				</div>
-			</div>
-		</footer>
+		<app-footer></app-footer>
 	</div>
 </template>
 
 <script>
 import FlipCountdown from 'vue2-flip-countdown';
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
 	name: 'App',
 	components: {
 		FlipCountdown,
+		AppHeader,
+		AppFooter,
 	},
 	created() {},
 	mounted() {
@@ -212,21 +197,32 @@ export default {
 		return {
 			isPlaying: true,
 			player: null,
-			weddingHost: 'Đình Khuê & Trà My',
 			activeIndex: '1',
 			toTopisShow: false,
 			weddingPictures: [
 				{
 					id: 1,
-					src: require('../public/img/wedding_pic1.jpeg'),
+					src: require('../public/img/theme1.jpg'),
 				},
 				{
 					id: 2,
-					src: require('../public/img/wedding_pic2.jpeg'),
+					src: require('../public/img/theme2.jpg'),
 				},
 				{
 					id: 3,
-					src: require('../public/img/wedding_pic3.jpeg'),
+					src: require('../public/img/theme3.jpg'),
+				},
+				{
+					id: 4,
+					src: require('../public/img/theme4.jpg'),
+				},
+				{
+					id: 5,
+					src: require('../public/img/theme5.jpg'),
+				},
+				{
+					id: 6,
+					src: require('../public/img/theme6.jpg'),
 				},
 			],
 			targetDate: new Date('2023-12-31T23:59:59'), // Đặt ngày đích
