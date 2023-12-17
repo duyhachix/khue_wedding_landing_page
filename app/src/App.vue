@@ -125,15 +125,6 @@
 							<div class="location_info_item">
 								<b-icon
 									class="item_icon"
-									icon="clock-fill"
-									variant="warning"
-									font-scale="1"
-								></b-icon>
-								<p class="item_context">10:00 AM - 12:00 PM</p>
-							</div>
-							<div class="location_info_item">
-								<b-icon
-									class="item_icon"
 									icon="telephone-fill"
 									variant="info"
 									font-scale="1"
