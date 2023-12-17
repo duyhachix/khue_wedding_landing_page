@@ -37,9 +37,104 @@
 	margin-bottom: 20px;
 }
 
-/* .gallery {
-  height: 400px;
-} */
+.wedding_pic {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.about_us {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.about_us_container {
+	width: 90%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.groom {
+	width: 45%;
+	height: 100%;
+	display: flex;
+}
+.groom .host_pic {
+	width: 50%;
+	height: 100%;
+}
+.groom .groom_pic img {
+	width: 100%;
+}
+.groom .groom_info {
+	width: 45%;
+	height: 100%;
+	/* object-fit: contain; */
+}
+.groom_info .info {
+	text-align: left;
+}
+.bride {
+	width: 45%;
+	height: 100%;
+	display: flex;
+	flex-direction: row-reverse;
+}
+.bride .host_pic {
+	width: 50%;
+	height: 100%;
+}
+.bride .bride_info {
+	width: 45%;
+	height: 100%;
+}
+
+.bride .bride_pic img {
+	width: 100%;
+}
+
+.bride_info .info {
+	text-align: right;
+}
+.host img {
+	width: auto;
+	object-fit: contain;
+	/* border: 1px solid; */
+	/* outline: 1px solid rgb(0, 0, 0); */
+	/* outline-offset: 10px; */
+	border-radius: 10px;
+}
+.host h2 {
+	font-size: 1.5rem;
+	margin-bottom: 20px;
+	font-weight: 800;
+}
+.groom_info h2 {
+	text-align: left;
+}
+.bride_info h2 {
+	text-align: right;
+}
+.host h4 {
+	font-size: 1rem;
+}
+.vertical-line {
+	width: 10%;
+}
+.vertical-line img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.host {
+	display: flex;
+	gap: 10px;
+}
+
 @media screen and (max-width: 480px) {
 	#app_body {
 		height: calc(100% - 60px);
@@ -58,89 +153,53 @@
 	.navbar_menu {
 		transform: scale(0.6);
 	}
-  /deep/.el-carousel__container {
-    height: 150px;
-  }
+
+	/deep/.el-carousel__container {
+		height: 150px;
+	}
+
+	.groom {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.groom .groom_pic {
+		width: 80%;
+	}
+
+	.bride {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-end;
+	}
+	.bride .bride_pic {
+		width: 80%;
+		display: flex;
+		/* justify-content: end; */
+	}
+	.groom .groom_info {
+		width: 100%;
+	}
+	.groom .groom_info h2 {
+		text-align: left;
+	}
+	.bride .bride_info {
+		width: 100%;
+	}
+	.bride .bride_info h2 {
+		text-align: right;
+	}
+	.host h2 {
+		font-size: 1rem;
+		margin-bottom: 5px;
+		font-weight: 800;
+	}
+
+	.host h4 {
+		font-size: 0.7rem;
+	}
 }
 
-.wedding_pic {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
-.about_us {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.about_us_container {
-	width: 80%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.groom {
-	width: 45%;
-	height: 100%;
-	display: flex;
-}
-.vertical-line {
-}
-.bride {
-	width: 45%;
-	height: 100%;
-	display: flex;
-	flex-direction: row-reverse;
-}
-.groom .groom_pic {
-	width: 50%;
-}
-.groom .groom_pic img {
-	width: 100%;
-}
-.groom .groom_info {
-	width: 40%;
-}
-.bride .bride_info {
-	width: 40%;
-}
-.bride .bride_pic {
-	width: 50%;
-}
-.bride .bride_pic img {
-	width: 100%;
-}
-
-.groom_info .info {
-	text-align: left;
-}
-.bride_info .info {
-	text-align: right;
-}
-.host {
-	display: flex;
-	gap: 20px;
-}
-.host img {
-	width: auto;
-	object-fit: contain;
-	border: 1px solid;
-	outline: 1px solid rgb(0, 0, 0);
-	outline-offset: 10px;
-	border-radius: 10px;
-}
-.host h2 {
-	font-size: 1.5rem;
-	margin-bottom: 20px;
-	font-weight: 800;
-}
-.host h4 {
-	font-size: 1rem;
-}
 .top-btn {
 	position: fixed;
 	bottom: 50px;
@@ -210,8 +269,8 @@
 	height: 100%;
 }
 .location .location_container .map iframe {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 .location .location_container .more_info {
 	width: 40%;

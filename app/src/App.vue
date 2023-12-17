@@ -63,7 +63,7 @@
 						<img src="../public/img/love.png" alt="pic" />
 					</div>
 					<div class="bride host">
-						<div class="bride_pic hot_pic">
+						<div class="bride_pic host_pic">
 							<img src="../public/img/bride.jpeg" alt="..." />
 						</div>
 						<div class="bride_info host_info">
