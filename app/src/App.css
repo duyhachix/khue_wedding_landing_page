@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Parisienne&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Noto+Sans+JP:wght@100&family=Parisienne&family=Source+Serif+4:opsz@8..60&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Parisienne&display=swap');
 #app {
-	font-family: 'Parisienne', cursive;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
 	margin: 0;
+	font-family: 'Cabin', sans-serif;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Parisienne', cursive;
+	font-family: 'Source Serif 4', serif;
 }
 
 #app_body {
@@ -69,7 +72,7 @@
 }
 .groom .groom_pic img {
 	/* width: 100%; */
-  height: 100%;
+	height: 100%;
 }
 .groom .groom_info {
 	width: 40%;
@@ -103,14 +106,14 @@
 .bride .bride_pic img {
 	/* width: 100%;
    */
-   height: 100%;
+	height: 100%;
 }
 
 .bride_info .info {
 	text-align: right;
 }
 .host .host_info {
-  cursor: pointer;
+	cursor: pointer;
 	padding: 1%;
 	border: 1px solid rgba(200, 200, 200, 0.7);
 	background-color: #fff;

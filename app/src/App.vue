@@ -107,7 +107,7 @@
 				<div class="location_container">
 					<div class="map">
 						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29763.53336940917!2d106.0740739!3d21.1746066!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350d5ef403be1b%3A0x90409b16b662566f!2zTmjDoCBWxINuIEhvw6EgS2h1IDQgxJDhuqFpIFBow7pj!5e0!3m2!1svi!2s!4v1702715991019!5m2!1svi!2s"
+							src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3720.526093752256!2d106.07864699999999!3d21.171249999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDEwJzE2LjUiTiAxMDbCsDA0JzQzLjEiRQ!5e0!3m2!1svi!2s!4v1702970564757!5m2!1svi!2s"
 							style=""
 							allowfullscreen="true"
 							loading="lazy"
@@ -125,7 +125,7 @@
 									font-scale="1"
 								></b-icon>
 								<p class="item_context">
-									Nhà văn hoá khu 4 Đại Phúc, thành phố Bắc Ninh, tỉnh Bắc Ninh
+									Tư gia nhà trai, khu 4, phường Đại Phúc, thành phố Bắc Ninh, tỉnh Bắc Ninh
 								</p>
 							</div>
 							<div class="location_info_item">
@@ -172,6 +172,17 @@
 			:hostName="hostName"
 			:quoteName="quoteName"
 		></quote-modal>
+		<wish-modal :wishModalId="wishModalId"></wish-modal>
+		<div class="section" style="padding: 2% 5%; background-color: antiquewhite">
+			<h3>Your best wishes !</h3>
+			<el-button
+				style="margin-bottom: 5px"
+				type="warning"
+				icon="el-icon-message"
+				@click="onOpenWishModal"
+				>Send us your wish</el-button
+			>
+		</div>
 		<app-footer></app-footer>
 	</div>
 </template>
@@ -181,6 +192,7 @@ import FlipCountdown from 'vue2-flip-countdown';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import QuoteModal from './components/QuoteModal.vue';
+import WishModal from './components/WishModal.vue';
 
 import ScrollReveal from 'scrollreveal';
 
@@ -191,14 +203,11 @@ export default {
 		AppHeader,
 		AppFooter,
 		QuoteModal,
+		WishModal,
 	},
 	created() {},
 	mounted() {
-		let nodeArray = [
-			this.$refs.gallery,
-			this.$refs.date,
-			this.$refs.location,
-		];
+		let nodeArray = [this.$refs.gallery, this.$refs.date, this.$refs.location];
 		let option = {
 			delay: 200,
 			distance: '50px',
@@ -244,7 +253,7 @@ export default {
 						"You are the love I never knew I needed, the anchor in life's stormy seas. I choose you today and every day, thankful for the extraordinary love we share .",
 				},
 			},
-
+			wishModalId: 'wishModalId',
 			quoteModalId: 'quoteModalId',
 			hostName: '',
 			quoteName: '',
@@ -290,6 +299,9 @@ export default {
 	},
 
 	methods: {
+		onOpenWishModal() {
+			this.$bvModal.show(this.wishModalId);
+		},
 		onQuoteClick(host) {
 			if (window.innerWidth > 480) {
 				return;
