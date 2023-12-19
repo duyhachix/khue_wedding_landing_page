@@ -49,28 +49,34 @@
 				<div class="about_us_container">
 					<div class="groom host">
 						<div class="groom_pic host_pic">
-							<img src="../public/img/groom.jpeg" alt="..." />
+							<img src="../public/img/khue.png" alt="..." />
 						</div>
-						<div class="groom_info host_info">
-							<h2>Nguyễn Đình Khuê</h2>
+						<div class="groom_info host_info" @click="onQuoteClick(host.groom)">
+							<h2>
+								{{ host.groom.quote }}
+							</h2>
 							<div class="info">
-								<h4>D.O.B: 18-09-1998</h4>
-								<h4 class="qoute">Hate at first sight</h4>
+								<h4 class="qoute">
+									<span style="font-style: italic; color: rgb(255, 215, 158)">by</span>
+									{{ host.groom.name }}
+								</h4>
 							</div>
 						</div>
 					</div>
-					<div class="vertical-line">
-						<img src="../public/img/love.png" alt="pic" />
-					</div>
+
 					<div class="bride host">
 						<div class="bride_pic host_pic">
-							<img src="../public/img/bride.jpeg" alt="..." />
+							<img src="../public/img/my.png" alt="..." />
 						</div>
-						<div class="bride_info host_info">
-							<h2>Nguyễn Trà My</h2>
+						<div class="bride_info host_info" @click="onQuoteClick(host.bride)">
+							<h2>
+								{{ host.bride.quote }}
+							</h2>
 							<div class="info">
-								<h4>D.O.B: 25-08-1998</h4>
-								<h4 class="qoute">Love at first sight</h4>
+								<h4 class="qoute">
+									<span style="font-style: italic; color: rgb(255, 215, 158)">by</span>
+									{{ host.bride.name }}
+								</h4>
 							</div>
 						</div>
 					</div>
@@ -160,6 +166,12 @@
 		<div v-if="toTopisShow" class="top-btn" @click="scrollToTop">
 			<b-icon icon="arrow-up-square-fill" font-scale="1"></b-icon>
 		</div>
+		<quote-modal
+			:quoteModalId="quoteModalId"
+			:sex="sex"
+			:hostName="hostName"
+			:quoteName="quoteName"
+		></quote-modal>
 		<app-footer></app-footer>
 	</div>
 </template>
@@ -168,6 +180,9 @@
 import FlipCountdown from 'vue2-flip-countdown';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+import QuoteModal from './components/QuoteModal.vue';
+
+import ScrollReveal from 'scrollreveal';
 
 export default {
 	name: 'App',
@@ -175,9 +190,35 @@ export default {
 		FlipCountdown,
 		AppHeader,
 		AppFooter,
+		QuoteModal,
 	},
 	created() {},
 	mounted() {
+		let nodeArray = [
+			this.$refs.gallery,
+			this.$refs.date,
+			this.$refs.location,
+		];
+		let option = {
+			delay: 200,
+			distance: '50px',
+			origin: 'top',
+			easing: 'ease-in-out',
+		};
+
+		ScrollReveal().reveal(nodeArray, option);
+		ScrollReveal().reveal('.groom', {
+			delay: 100,
+			distance: '50px',
+			origin: 'left',
+			easing: 'ease-in',
+		});
+		ScrollReveal().reveal('.bride', {
+			delay: 100,
+			distance: '50px',
+			origin: 'right',
+			easing: 'ease-in',
+		});
 		setInterval(this.updateCountdown, 1000); // Cập nhật mỗi giây
 		window.addEventListener('scroll', this.handleScroll);
 		this.$bvModal.show('modal-1');
@@ -189,6 +230,25 @@ export default {
 
 	data() {
 		return {
+			host: {
+				groom: {
+					sex: 'male',
+					name: 'Nguyễn Đình Khuê',
+					quote:
+						'From this day forward, I promise to be your partner in all things, your confidant in all trials, and your biggest fan in all triumphs. I love you more than words can express.',
+				},
+				bride: {
+					sex: 'female',
+					name: 'Nguyễn Trà My',
+					quote:
+						"You are the love I never knew I needed, the anchor in life's stormy seas. I choose you today and every day, thankful for the extraordinary love we share .",
+				},
+			},
+
+			quoteModalId: 'quoteModalId',
+			hostName: '',
+			quoteName: '',
+			sex: '',
 			weddingInvitationMessage:
 				'The love and support of friends and family make moments unforgettable. Will you be apart of our special day and witness the beginning of our happily ever after?',
 			isPlaying: true,
@@ -230,6 +290,24 @@ export default {
 	},
 
 	methods: {
+		onQuoteClick(host) {
+			if (window.innerWidth > 480) {
+				return;
+			}
+
+			if (host.sex === 'male') {
+				this.sex = 'male';
+				this.hostName = this.host.groom.name;
+				this.quoteName = this.host.groom.quote;
+			} else {
+				this.sex = 'female';
+				this.hostName = this.host.bride.name;
+				this.quoteName = this.host.bride.quote;
+			}
+
+			console.log(host.sex);
+			this.$bvModal.show(this.quoteModalId);
+		},
 		handleSelect(key, keyPath) {
 			console.log(key, keyPath);
 		},

@@ -16,6 +16,7 @@
     "bootstrap": "^5.3.2",
     "bootstrap-vue": "^2.23.1",
     "element-ui": "^2.15.14",
+    "scrollreveal": "^4.0.9",
     "vue": "^2.7.15",
     "vue2-flip-countdown": "^1.0.0"
   },
